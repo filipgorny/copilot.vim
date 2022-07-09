@@ -375,7 +375,8 @@ function! s:Command() abort
   endif
   let node_version = matchstr(join(out, ''), '^v\zs\d\+\.[^[:space:]]*')
   let major = str2nr(node_version)
-  let too_new = major >= 18 && node_version !=# '18.0.0'
+  let too_new = major >= 19
+  
   if !get(g:, 'copilot_ignore_node_version')
     if major == 0
       return [v:null, 'Could not determine Node.js version']
